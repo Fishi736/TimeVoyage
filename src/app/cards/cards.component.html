@@ -1,0 +1,62 @@
+<div class="event-card text-center" data-bs-toggle="modal" [attr.data-bs-target]="'#exampleModal'+data.id">
+    <div class="card-content"
+        [ngStyle]=" {'background-image': 'linear-gradient(to bottom, rgba(67, 67, 67,0.15) 0%, #222222cc 100%),url(../../assets/'+data.image+')'}">
+
+    </div>
+    <div class="card-details">
+
+        <div class="event-name">
+            <h6>{{data.title}}</h6>
+            <p>{{data.date}}</p>
+
+        </div>
+
+
+
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal{{data.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable col-lg-8">
+        <div class="modal-content p-2">
+            <button type="button" class="btn-close ms-auto" [attr.data-bs-target]="'#exampleModal'+data.id"
+                data-bs-dismiss="modal" aria-label="Close"></button>
+
+            <div class="modal-body">
+                <h3>{{data.title}}</h3>
+                <small>{{data.year}}</small>
+
+                <div class="description mt-3 ">
+
+                    <img src="../../assets/{{data.image}}" class="img-fluid description-img" alt="" srcset="">
+
+
+                    <p class="my-3">{{data.description}}</p>
+                    <br>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam quos quibusdam, adipisci
+                        natus ut
+                        facilis mollitia numquam impedit rem eos! Sint saepe totam fugiat aliquam, voluptate nisi
+                        culpa maxime
+                        optio!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam quos quibusdam,
+                        adipisci natus ut
+                        facilis mollitia numquam impedit rem eos! Sint saepe totam fugiat aliquam, voluptate nisi
+                        culpa maxime
+                        optio!</p>
+
+
+
+                    <iframe width="560" height="315" [src]="sanitizer.bypassSecurityTrustResourceUrl(data.video)"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

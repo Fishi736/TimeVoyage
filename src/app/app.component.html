@@ -1,0 +1,41 @@
+<section>
+  <div class="container">
+    <div class="row text-center py-4">
+      <h1>Time Voyage</h1>
+    </div>
+
+    <div class="search-container my-5">
+      <input type="text" [(ngModel)]="searchTerm" placeholder="Search The Historical Event" (input)="searchTimeline()">
+      <select [(ngModel)]="searchYear" (change)="searchTimeline()" class="ms-3 form-select w-25">
+        <option *ngFor="let event of timeLine" value="{{event.date}}">{{ event.date }}</option>
+      </select>
+    </div>
+
+    <ng-container *ngIf="filteredTimelineData.length>0,else noEvent">
+      <div class="timeline-container">
+        <ul class="timeline">
+          <li *ngFor="let item of filteredTimelineData;">
+            <span>{{item.date}}</span>
+            <div class="card-container">
+              <app-cards [data]="item"></app-cards>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </ng-container>
+    <ng-template #noEvent>
+      <div class="px-4 py-5 my-5 text-center">
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4">No Event Found</p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <button type="button" class="btn px-4 gap-3" (click)="reset()">Search Again</button>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+
+  </div>
+
+</section>
+
+<router-outlet></router-outlet>

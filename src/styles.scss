@@ -1,0 +1,120 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-family: "Open Sans";
+}
+
+section {
+  background-color: #f7f6f4;
+}
+
+h1 {
+  color: #582b00;
+  font-size: 60px;
+}
+
+.timeline-container {
+  width: 80%;
+  overflow-x: auto;
+  margin: 40px auto;
+}
+
+.timeline {
+  list-style: none;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+
+  li {
+    flex: 0 0 auto;
+    width: 40%;
+    height: 0px;
+    text-align: center;
+    position: relative;
+    top: 12px;
+    border-bottom: 1px solid #b87333;
+
+    span {
+      position: absolute;
+      left: -10px;
+      top: -28px;
+      color: #7d3c00;
+      font-size: 12px;
+      font-weight: 400;
+    }
+    .card-container {
+      top: 24px;
+      width: 80%;
+      border: none;
+    }
+  }
+}
+
+.timeline li::before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: #b87333;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.btn {
+  background-color: #7d3c00;
+  color: #fff;
+}
+
+.search-container {
+  width: 60%;
+  margin: auto;
+  display: flex;
+
+  input {
+    width: 70%;
+    border-radius: 16px;
+    border: 1px solid grey;
+    padding: 8px;
+  }
+
+  select {
+    border-radius: 16px;
+  }
+}
+
+.modal-dialog {
+  max-width: 50% !important;
+
+  .modal-content {
+    border-radius: 12px;
+    border: none;
+  }
+
+  .modal-body {
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline-container {
+    width: 90%;
+
+    .timeline {
+      li {
+        width: 80%;
+        .card-container {
+          width: 90%;
+        }
+      }
+    }
+  }
+  .search-container {
+    width: 80%;
+  }
+}
